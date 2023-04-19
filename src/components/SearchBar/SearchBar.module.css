@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+    gap: 5px;
+}
+
+.container > input {
+    width: 100%;
+}
+
+.container > p {
+    min-width: 64px;
+}

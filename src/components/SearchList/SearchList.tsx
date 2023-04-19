@@ -1,4 +1,5 @@
 import { UserCard, UserDataType } from "../UserCard/UserCard";
+import style from "./SearchList.module.css";
 
 interface SearchListType {
   UsersList?: UserDataType[] | null;
@@ -17,14 +18,20 @@ export const SearchList = ({
 
   return (
     <div>
-      {UsersList.map((user) => (
-        <UserCard
-          key={user.id}
-          UserData={user}
-          IsFavorite={favoriteUsers.includes(user.id)}
-          onClick={() => toggleFavoriteStatus(user.id)}
-        />
-      ))}
+      {UsersList.length > 0 ? (
+        UsersList.map((user) => (
+          <UserCard
+            key={user.id}
+            UserData={user}
+            IsFavorite={favoriteUsers.includes(user.id)}
+            onClick={() => toggleFavoriteStatus(user.id)}
+          />
+        ))
+      ) : (
+        <div className={style.anyResult}>
+          <p>Aucun Résulat...</p>
+        </div>
+      )}
     </div>
   );
 };
