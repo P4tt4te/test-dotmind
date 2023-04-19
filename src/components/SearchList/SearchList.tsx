@@ -19,6 +19,7 @@ export const SearchList = ({
     <div>
       {UsersList.map((user) => (
         <UserCard
+          key={user.id}
           UserData={user}
           IsFavorite={favoriteUsers.includes(user.id)}
           onClick={() => toggleFavoriteStatus(user.id)}

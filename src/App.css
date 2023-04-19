@@ -5,11 +5,21 @@
   padding: 2rem;
 }
 
-.ContactList {
+.App > div {
+  display: flex;
+  gap: 20px;
+}
+
+.List {
   display: flex;
   flex-direction: column;
   gap: 5px;
   padding: 5px 20px;
+  width: 50%;
+}
+
+.FavoriteList {
+  background: lightgrey;
 }
 
 .logo {

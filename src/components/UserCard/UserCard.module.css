@@ -1,10 +1,10 @@
 .container {
     display: flex;
-    width: 100%;
     justify-content: space-between;
     margin: 10px 0;
     padding: 10px;
-    border: 3px solid grey;
+    background-color: #1a1a1a;
+    border-radius: 8px;
 }
 
 p {
@@ -14,6 +14,12 @@ p {
 .info {
     display: flex;
     gap: 10px;
+}
+
+.info > img:first-of-type {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
 }
 
 .info > div {
