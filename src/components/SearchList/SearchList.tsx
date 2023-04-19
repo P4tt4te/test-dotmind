@@ -2,9 +2,15 @@ import { UserCard, UserDataType } from "../UserCard/UserCard";
 
 interface SearchListType {
   UsersList?: UserDataType[] | null;
+  favoriteUsers: number[];
+  toggleFavoriteStatus: (UserId: number) => void;
 }
 
-export const SearchList = ({ UsersList }: SearchListType) => {
+export const SearchList = ({
+  UsersList,
+  favoriteUsers,
+  toggleFavoriteStatus,
+}: SearchListType) => {
   if (UsersList === null || UsersList === undefined) {
     return <div>En attente ...</div>;
   }
@@ -12,7 +18,11 @@ export const SearchList = ({ UsersList }: SearchListType) => {
   return (
     <div>
       {UsersList.map((user) => (
-        <UserCard UserData={user} IsFavorite={false} />
+        <UserCard
+          UserData={user}
+          IsFavorite={favoriteUsers.includes(user.id)}
+          onClick={() => toggleFavoriteStatus(user.id)}
+        />
       ))}
     </div>
   );

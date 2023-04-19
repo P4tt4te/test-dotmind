@@ -13,9 +13,10 @@ export type UserDataType = {
 interface UserCardProps {
   UserData: UserDataType;
   IsFavorite: boolean;
+  onClick: () => void;
 }
 
-export const UserCard = ({ UserData, IsFavorite }: UserCardProps) => {
+export const UserCard = ({ UserData, IsFavorite, onClick }: UserCardProps) => {
   const createFullName = (firstName: string, lastName: string) =>
     firstName + " " + lastName;
 
@@ -32,6 +33,7 @@ export const UserCard = ({ UserData, IsFavorite }: UserCardProps) => {
         className={style.heart}
         src={IsFavorite ? FilledHeart : EmptyHeart}
         alt="favorite"
+        onClick={onClick}
       />
     </div>
   );
