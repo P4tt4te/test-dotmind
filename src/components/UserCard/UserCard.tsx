@@ -1,3 +1,4 @@
+import style from "./UserCard.module.css";
 import FilledHeart from "../../assets/heart-fill.svg";
 import EmptyHeart from "../../assets/heart.svg";
 
@@ -19,13 +20,19 @@ export const UserCard = ({ UserData, IsFavorite }: UserCardProps) => {
     firstName + " " + lastName;
 
   return (
-    <div>
-      <img src={UserData.avatar} alt="Avatar" />
-      <div>
-        <p>{createFullName(UserData.first_name, UserData.last_name)}</p>
-        <p>{UserData.email}</p>
+    <div className={style.container}>
+      <div className={style.info}>
+        <img src={UserData.avatar} alt="Avatar" />
+        <div>
+          <p>{createFullName(UserData.first_name, UserData.last_name)}</p>
+          <p>{UserData.email}</p>
+        </div>
       </div>
-      <img src={IsFavorite ? FilledHeart : EmptyHeart} alt="favorite" />
+      <img
+        className={style.heart}
+        src={IsFavorite ? FilledHeart : EmptyHeart}
+        alt="favorite"
+      />
     </div>
   );
 };

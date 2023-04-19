@@ -7,7 +7,7 @@ import { UserDataType } from "./components/UserCard/UserCard";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(true);
+  const [favoriteUsers, setFavoriteUsers] = useState<number[]>([]);
   const [users, setUsers] = useState<UserDataType[] | null>(null);
 
   useEffect(() => {
@@ -20,8 +20,12 @@ function App() {
   return (
     <div className="App">
       <h1>My contacts</h1>
-      <SearchBar />
-      <SearchList UsersList={users} />
+      <div className="ContactList">
+        <SearchBar />
+        <SearchList UsersList={users} />
+      </div>
+      <div className="ContactList">
+      </div>
     </div>
   );
 }
